@@ -25,8 +25,8 @@ The dataset used for this task consists of 900,000 reviews from Goodreads, inclu
 
 ## Files in This Repository
 
-- `notebooks/Goodreads.ipynb`: The Jupyter notebook containing all code for data preprocessing, model training, and evaluation.
-- `docs/Goodreads-Doc.pdf`: The final report detailing the project, methodology, and results.
+- `notebook/Goodreads.ipynb`: The Jupyter notebook containing all code for data preprocessing, model training, and evaluation.
+- `doc/Goodreads-Doc.pdf`: The final report detailing the project, methodology, and results.
 
 ## How to Run
 
