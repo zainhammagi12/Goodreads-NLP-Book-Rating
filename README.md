@@ -1,41 +1,101 @@
-# Goodreads-NLP-Book-Rating
+# Goodreads NLP Book Rating Prediction
 
-This project aims to predict book ratings on Goodreads based on user review text using machine learning and deep learning models. It was completed as part of the *CS985: Machine Learning for Data Analytics* coursework.
+A natural language processing pipeline that predicts book ratings from Goodreads review text — exploring what language signals correlate with how readers rate books.
 
-## Project Overview
+---
 
-The goal of this project was to predict Goodreads review ratings (1-5) using text reviews. Several models were implemented and compared:
-- **Naive Bayes**
-- **3-Layer Neural Network**
-- **1D CNN with GloVe Embeddings**
-- **LSTM**
-- **GRU**
+## Problem Statement
 
-The **1D CNN** model with GloVe embeddings achieved the highest accuracy.
+Can we predict whether a Goodreads review will be accompanied by a high or low rating, based solely on the text of the review? This is a classic NLP classification problem with practical applications in recommendation systems, content moderation, and sentiment analysis at scale.
 
-### Dataset
-The dataset used for this task consists of 900,000 reviews from Goodreads, including features such as:
-- `review_text`: The text of the review (used for prediction).
-- `rating`: The rating of the book (target variable).
+---
 
-### Key Steps
-1. **Data Preprocessing**: Text cleaning, tokenization, and vectorization using TF-IDF.
-2. **Modeling**: Training several machine learning models, including deep learning architectures like CNNs and LSTMs.
-3. **Evaluation**: The models were evaluated based on accuracy, with the 1D CNN model performing the best.
+## Approach
 
-## Files in This Repository
+```
+Raw Goodreads Reviews (text + rating)
+            │
+            ▼
+Text Preprocessing
+(lowercasing, punctuation removal, stopword removal, lemmatisation)
+            │
+            ▼
+Feature Extraction
+(TF-IDF vectorisation, n-gram features)
+            │
+            ▼
+Model Training and Comparison
+(Logistic Regression, Naive Bayes, SVM)
+            │
+            ▼
+Evaluation
+(accuracy, F1 score, confusion matrix, classification report)
+            │
+            ▼
+Error Analysis
+(common misclassification patterns, ambiguous language)
+```
 
-- `notebook/Goodreads.ipynb`: The Jupyter notebook containing all code for data preprocessing, model training, and evaluation.
-- `doc/Goodreads-Doc.pdf`: The final report detailing the project, methodology, and results.
+---
+
+## Key Findings
+
+- Review sentiment language is a strong predictor of rating band
+- Short reviews are harder to classify reliably — less signal for the model
+- Certain words appear disproportionately in low-rated reviews regardless of apparent sentiment (e.g. qualified praise)
+- Full results and feature importance plots available in the notebook
+
+---
+
+## Tech Stack
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=flat&logo=scikit-learn&logoColor=white)
+![NLTK](https://img.shields.io/badge/NLTK-3B5526?style=flat)
+![pandas](https://img.shields.io/badge/pandas-150458?style=flat&logo=pandas&logoColor=white)
+
+- Python, pandas, NumPy
+- NLTK (tokenisation, stopwords, lemmatisation)
+- scikit-learn (TF-IDF, classification models, evaluation)
+- matplotlib, seaborn (visualisation)
+- Jupyter Notebook
+
+---
+
+## Project Structure
+
+```
+Goodreads-NLP-Book-Rating/
+│
+├── notebooks/
+│   ├── 01_eda_and_preprocessing.ipynb    # Data exploration and text cleaning
+│   ├── 02_feature_extraction.ipynb       # TF-IDF and n-gram features
+│   └── 03_modelling_and_evaluation.ipynb # Model training, comparison, error analysis
+│
+├── data/
+│   └── goodreads_reviews.csv             # Dataset
+│
+├── requirements.txt
+└── README.md
+```
+
+---
 
 ## How to Run
 
-To reproduce the results:
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/zainhammagi12/Goodreads-NLP-Book-Rating.git
-   cd Goodreads-NLP-Book-Rating
-   
-## Kaggle Competition
+```bash
+# Clone the repository
+git clone https://github.com/zainhammagi12/Goodreads-NLP-Book-Rating
 
-Link: https://www.kaggle.com/competitions/cs985-cs987-goodread-class-project
+# Install dependencies
+pip install -r requirements.txt
+
+# Run notebooks in order
+jupyter notebook notebooks/
+```
+
+---
+
+## Author
+
+**Zain Hammagi** — [linkedin.com/in/zain-hammagi](https://linkedin.com/in/zain-hammagi) · [zainhammagi.github.io](https://zainhammagi.github.io)
